@@ -19,7 +19,7 @@ drop table if exists students;
 GO
 
 -- studentID, lastName, firstName are the columns/fields of the students table
-create table students (
+create table dbo.students (
     StudentID INT PRIMARY KEY Check (StudentID >= 1000 AND StudentID <= 9999), 
     -- primary key means that this field will be unique for each record
     -- Check constraint ensures that the student ID is a four-digit number
@@ -27,13 +27,13 @@ create table students (
     FirstName varchar(255) NOT NULL
 );
 
-create table teachers (
+create table dbo.teachers (
     TeacherID INT PRIMARY KEY Check (TeacherID >= 100 AND TeacherID <= 999), 
     LastName varchar(255) NOT NULL, 
     FirstName varchar(255) NOT NULL
 );
 
-create table courses (
+create table dbo.courses (
     CourseID INT PRIMARY KEY Check (CourseID >= 100 AND CourseID <= 999), 
     CourseName varchar(255) NOT NULL, 
     Credits INT NOT NULL Check (Credits >= 1 AND Credits <= 4),
@@ -44,10 +44,11 @@ create table courses (
     -- foreign key makes sure that the TeacherID exists in the teachers table
 );
 
-create table enrollments (
+create table dbo.enrollments (
     StudentID INT NOT NULL, 
     CourseID INT NOT NULL, 
-    Grade FLOAT CHECK (Grade >= 0 AND Grade <= 100), -- grade must be between 0 and 100
+    Grade Decimal (5,2) CHECK (Grade >= 0.00 AND Grade <= 100.00), -- grade must be between 0 and 100
+    -- Decimal (5,2) ensures that grade can have up to 5 digits with 2 being after the decimal point
     PRIMARY KEY (StudentID, CourseID), -- composite primary key ensures that a student can only enroll in a course once, the combination is unique
     FOREIGN KEY (StudentID) REFERENCES students(StudentID), 
     FOREIGN KEY (CourseID) REFERENCES courses(CourseID)
