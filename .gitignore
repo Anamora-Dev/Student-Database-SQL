@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# SQL Server temporary files
+*.log
+*.mdf
+*.ldf
