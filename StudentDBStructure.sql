@@ -24,7 +24,7 @@ create table students (
     -- primary key means that this field will be unique for each record
     -- Check constraint ensures that the student ID is a four-digit number
     LastName varchar(255) NOT NULL, -- NOT NULL means that this field cannot be left empty
-    FirstName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL
 );
 
 create table teachers (
@@ -52,3 +52,4 @@ create table enrollments (
     FOREIGN KEY (StudentID) REFERENCES students(StudentID), 
     FOREIGN KEY (CourseID) REFERENCES courses(CourseID)
 );
+
