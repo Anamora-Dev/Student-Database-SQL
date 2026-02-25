@@ -1,3 +1,10 @@
+-- can comment out these four lines after first run
+drop database if exists courseDatabase;
+GO
+
+create database courseDatabase;
+GO
+
 USE courseDatabase;
 GO
 -- GO is a batch separator in SQL Server, signals the end of a batch

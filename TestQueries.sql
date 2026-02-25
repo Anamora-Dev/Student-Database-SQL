@@ -1,3 +1,4 @@
+-- uncomment these lines on first run
 --USE courseDatabase;
 --GO
 

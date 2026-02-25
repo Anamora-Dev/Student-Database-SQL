@@ -1,3 +1,7 @@
+-- uncomment these lines on first run
+--USE courseDatabase;
+--GO
+
 insert into students
 values (1000, 'Doe', 'John'), 
         (1001, 'Smith', 'Jane'), 
